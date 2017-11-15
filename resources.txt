@@ -1,0 +1,7 @@
+When performing a GET on /v0/cards with the "requests" library, the attribute
+   "headers" will contain a "Last-Modified" key. Use this key and perform
+   caching with a "Date"-like key (or one provided from the library
+   email.utils.formatdate and the call formatdate(timeval=None, localtime=None,
+   usegmt=True))
+
+Another way of performing such task is to curl the cards URL
