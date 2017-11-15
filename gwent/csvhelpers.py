@@ -8,7 +8,8 @@ def write_csv(data_dict, header_vals, fname):
            the header and data_dict items as row values.
     '''
     with open(fname, 'w') as f:
-        dwriter = csv.writer(f)
-        dwriter.writerow(header_vals)
+        writer = csv.writer(f)
+        writer.writerow(header_vals)
         for k, v in data_dict.items():
-            dwriter.writerow([k] + v)
+            # writerow expects a list as argument
+            writer.writerow([k] + v)

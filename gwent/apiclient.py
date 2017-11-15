@@ -13,6 +13,8 @@ rarities_url = '{}/{}'.format(index_url, 'rarities')
 cardfactions_url = '{}/{}'.format(cards_url, 'factions')
 cardrarities_url = '{}/{}'.format(cards_url, 'rarities')
 
+# 'limit': the number of objects to be queried
+# 'offset': the number of objects to be skipped
 pagecard_params = {'limit': 500, 'offset': 0}
 
 def req_pagecards(url, params=pagecard_params):
