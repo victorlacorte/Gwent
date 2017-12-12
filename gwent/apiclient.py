@@ -17,9 +17,6 @@ cardrarities_url = '{}/{}'.format(cards_url, 'rarities')
 # 'offset': the number of objects to be skipped
 pagecard_params = {'limit': 500, 'offset': 0}
 
-def req_pagecards(url, params=pagecard_params):
-    return requests.get(url, params=params)
-
 def filter_pagecards(cards_response):
     '''
         Obsolete function. Caching the API has no current usages.
@@ -70,7 +67,7 @@ def categorize(collection_json, category_url, params=pagecard_params):
         #   has attributes for all cards in the game, querying each one
         #   individually gathers all possible cards.
         url = '{}/{}'.format(category_url, category['uuid'])
-        cards = req_pagecards(url, params).json()['results']
+        cards = requests.get(url, params).json()['results']
         for card in cards:
             all_cards[card['name']] = cat_name
     return all_cards
@@ -82,6 +79,10 @@ def merge_collections(collection1, *collections):
 
         collection: dict with card names as keys and a collection's attribute
             as value.
+
+        TODO if the 'Leader` tag is of interest than this function would need
+           to be reworked (assuming a query to /cards/leaders is performed and
+           organized the same way as the collections)
     '''
     d = defaultdict(list)
     for k, v in collection1.items():
