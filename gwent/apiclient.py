@@ -15,7 +15,7 @@ cardrarities_url = '{}/{}'.format(cards_url, 'rarities')
 
 # 'limit': the number of objects to be queried
 # 'offset': the number of objects to be skipped
-pagecard_params = {'limit': 500, 'offset': 0}
+pagecard_params = {'limit': 200, 'offset': 357}
 
 def filter_pagecards(cards_response):
     '''
@@ -91,3 +91,8 @@ def merge_collections(collection1, *collections):
         for k, v in collection.items():
             d[k].append(v)
     return d
+
+def cardcount(url=cards_url):
+    r = requests.get(url)
+    return {'count': r.json()['count'],
+            'last-modified': r.headers['last-modified']}

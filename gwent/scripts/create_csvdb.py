@@ -10,4 +10,4 @@ if __name__ == '__main__':
     cards1 = categorize(r1.json(), cardfactions_url)
     cards2 = categorize(r2.json(), cardrarities_url)
     cards = merge_collections(cards1, cards2)
-    write_csv(cards, ['Name', 'Faction', 'Rarity'], 'gwent/data/allcards.csv')
+    write_csv(cards, ['Name', 'Faction', 'Rarity'], 'gwent/data/tech.csv')
