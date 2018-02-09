@@ -19,6 +19,7 @@ def test_get_cardlinks():
         jsonf = json.load(f)
         assert len(list(get_cardlinks(jsonf))) == jsonf['count']
 
+@pytest.mark.ignore
 def test_categorize():
     r = requests.get(rarities_url)
     rarities = '{}/{}'.format(cards_url, 'rarities')

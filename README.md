@@ -1,2 +1,2 @@
-Simple https://gwentapi.com/ client utilized to fetch the game's current
-   card pool.
+https://gwentapi.com/ or https://github.com/GwentCommunityDevelopers/gwent-data-release
+   card pool client.
